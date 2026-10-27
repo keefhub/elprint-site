@@ -1,12 +1,14 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Fully static site: `next build` writes plain HTML/CSS/JS to ./out.
+  // All cart, draft and order data lives in the visitor's localStorage.
+  output: "export",
+  trailingSlash: true,
+  images: { unoptimized: true },
   experimental: {
     agentFeedback: true,
   },
-  cacheComponents: true,
-  partialPrefetching: true,
   turbopack: {
     rules: {
       "*.css": {
